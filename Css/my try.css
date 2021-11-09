@@ -1,0 +1,35 @@
+.container {
+    display: grid;
+    gap: 0.2em;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.zone {
+    text-align: center;
+    border: 2px;
+    font-size: 5rem;
+}
+
+.zone:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 5px  grey;
+    transition: all 0.3s linear;
+    border-radius: 10px;
+
+}
+
+
+.blue {
+    background: rgb(41,29,253);
+background: linear-gradient(90deg, rgba(41,29,253,1) 0%, rgba(114,109,255,1) 51%, rgba(147,149,255,1) 97%);
+}
+
+.white {
+    background: rgb(238,237,255);
+    background: linear-gradient(90deg, rgba(238,237,255,1) 0%, rgba(251,250,255,1) 51%, rgba(255,255,255,1) 97%); 
+}
+
+.red {
+    background: rgb(253,29,29);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(255,98,98,1) 51%, rgba(255,146,146,1) 88%);
+}

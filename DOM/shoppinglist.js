@@ -5,10 +5,12 @@ var li = ul.children;
 var done = document.getElementById("done");
 var remove = document.getElementsByClassName("remove")
 
-function clearFromList() {
-    if (remove.onclick === true) {
+function clearFromList(i) {
+    console.log(li)
+    // i = index || 1 removes one element at position i 
+        li[i].parentNode.removeChild(li[i]);
         console.log("This remove thing works.")
-    }
+    
 }
 
 function lineThroughList() {
@@ -61,6 +63,15 @@ function updateLi() {
     // so li.length-1 refers to the index of the last item in the li array
     li[li.length-1].addEventListener('click', lineThroughList)
 };
+
+
+for (let i = 0; i < remove.length; i++) {
+    console.log(i)
+    remove[i].addEventListener("click", () => (clearFromList(i)) );
+    // console.log(li[i]) --- testing to see if it works.
+
+}
+
 
 button.addEventListener("click", addListAfterClick);
 
