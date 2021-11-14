@@ -33,3 +33,25 @@ function condition() {
 }
 
 var answer2 = condition()
+
+//Switch Statement
+function moveCommand(direction) {
+    var whatHappens;
+    switch (direction) {
+        case "forward":
+            whatHappens = "There is a MONSTER just ahead of you";
+            break;
+        case "back":
+            whatHappens = "You're home safely!";
+            break;
+        case "right":
+            whatHappens = "You found une riviere! ";
+            break;
+        case "left":
+            whatHappens = "You run into a snake";
+            break;
+        default:
+            whatHappens = "Enter a valid direction";
+    }
+    return whatHappens;
+}
