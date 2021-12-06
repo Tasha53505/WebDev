@@ -33,20 +33,58 @@ const array2 = ['a', 3, 4, 2] // should return 4
 const array3 = [] // should return 0
 
 function biggestNumberInArray(arr) {
-  for (big of array) {
-
-  }
-
+  let biggestNum = 0;
+  arr.forEach((num) => {
+    if (num > biggestNum) {
+      biggestNum = num;
+    }
+  })
+  return biggestNum;
 }
+console.log(biggestNumberInArray(array));
+
+
+// create loops, itterates ovear each item in array, and it checks to see if current num is bigger than the number found
 
 function biggestNumberInArray2(arr) {
+  let biggestNum = 0;
+  for (num of arr) {
+    if (num > biggestNum) {
+      biggestNum = num;
 
+    }
+
+  }
+  return biggestNum;
 }
+console.log(biggestNumberInArray2(array2));
+const ANSWER = "YES"
+
+// This is so I understand.
+function biggestNumberInArray3(arr) {
+  let biggestNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const currentNum = arr[i];
+    if (currentNum > biggestNum) {
+      biggestNum = currentNum;
+    }
+  }
+  return biggestNum;
+}
+console.log(biggestNumberInArray3(array3))
+
+// this tidies it up
 
 function biggestNumberInArray3(arr) {
-
+  let biggestNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > biggestNum) {
+      biggestNum = arr[i]
+    }
+    return biggestNum;
+  }
+  console.log(biggestNumberInArray3(array3))
 }
-
 
 // Question #2:
 // Write a function checkBasket() that lets you know if the item is in the basket or not
@@ -57,5 +95,12 @@ amazonBasket = {
 }
 
 function checkBasket(basket, lookingFor) {
-
+  for (item in basket) {
+    if (item === lookingFor) {
+      return `${lookingFor} is in your basket`;
+    }
+  }
+  return `That doesn't exist in your basket.`
 }
+checkBasket(amazonBasket, 'chocolate');
+const ANSWER = "YES"
