@@ -1,16 +1,24 @@
 
 
-
-.container {
+/* 
+ .container {
     display: grid;
     gap: 2px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-}
-table {
-    padding: 4px;
+}  */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+} 
+
+.table {
+    padding: 200px;
     border: rgb(240, 80, 107) 2px;
-    border-width: 0.2em;
+    border-width: 200px;
 
 }
 
@@ -21,10 +29,22 @@ input[type="button"] {
     border-color: rgb(181, 44, 94);
     
 }
-\\
+
 input[type= "text"] {
     padding: 10px;
     font-size: 20px;
     background-color: rgb(255, 221, 227);
     color: rgb(240, 80, 107);
+}
+
+.title {
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+   color: rgb(206, 96, 137);
+   font-size: 40px;
+   text-align: center;
+
+}
+
+#valText {
+    border: plum 1px 3px;
 }
