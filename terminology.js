@@ -1233,12 +1233,63 @@ an SS of your project
 
 CTA = Email me:
 
+
+
+
+
+
+
+
+
+
+
+
+
 REACT: - Makes websites really well, Apps, desktop apps, 
 -Thinking and componenents (each indidividual item then slowly added together)
 
 One-way Data flow = Data flows from rop to bottom - dirty components would be where the parents didn't really care
 Re-rendered components would be where evryone would understandcd 
 
+Virtual DOm- React js will remove the amount of DOM and it will create it in the most efficient way possible
+
+react has  a great ecosystem - any problem I have, someone would have had already - Create React App
+
+installs react app for begiinners with your app name
+npx create-react-app robofriends
+npm test - runs tests
+
+if u spell something wrong, go npm start and it will tell you what is wrong and where.
+
+Most important part is div = root
+
+
+class App extends React.Component - this extends the power that comes inside the react package. The react component will automatically detect the render method 
+
+
+Hooks vs classes -
+
+Hooks are new, but they're very specific.
+
+A lot of code bases still use classes. - shying away from hooks because of the added complexity
+
+React is a view library
+ReactDOM (websites)
+React Native would be for phones
+Importing index.css so you can use it on multiple files but you need to use the import at the TOP of the file.
+
+if there is no .css.html etc, it will
+
+
+ReactDOM.render(
+  <React.StrictMode>
+    <h1>Hello World</h1>
+
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+ReacDom package to use the function render and render function is going to render Hello World.
 
 */
 
