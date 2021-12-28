@@ -1291,5 +1291,36 @@ ReactDOM.render(
 
 ReacDom package to use the function render and render function is going to render Hello World.
 
+
+import React, { Component } from 'react';
+
+
+class Hello extends Component {
+    render() {
+        return (
+            <div>
+                <h1>Hello World</h1>
+                <p>Welcome to React</p>
+            </div>
+        );
+    }
+}
+
+export default Hello;
+This will make the page render xyz
+
+$ npm install tachyons 
+This will give us predefined things like bootstrap does
+import 'tachyons'; on index.js
+https://tachyons.io
+Look at console for errors
+
+Seperation of concerns: React has the idea of components, it's better to have functionality and styles per component so that each component is it's own seperate universe. because each component is concerned with itself, it changes the paradigm
+
+    HELLO.js
+    <p>{this.props.greeting}</p> -- this(hello) has properties of greeting (index.js)\
+
+
+
 */
 

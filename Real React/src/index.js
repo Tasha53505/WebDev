@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Hello from './Hello.js';
 import reportWebVitals from './reportWebVitals';
+import 'tachyons';
 
-ReactDOM.render(<App />,
+ReactDOM.render(<Hello greeting={`Hello, my favourite person`} cool={`You're the coolest person ever.`} />,
 
   document.getElementById('root')
 );
