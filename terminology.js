@@ -4,7 +4,7 @@ function newFunction() {
 }
 
 // Function expression
-var newFunction = function () {
+var newFunction = function() {
 
 };
 
@@ -27,7 +27,7 @@ function thisIsAFunction() {
 }
 
 var obj = {
-    thisIsAMethod: function () {
+    thisIsAMethod: function() {
 
     }
 };
@@ -179,6 +179,7 @@ function whereAmI(username, location) {
 // ARROW FUNCTION THIS
 function first() {
     var greet = "hi";
+
     function second() {
         alert(greet);
     }
@@ -267,20 +268,21 @@ const compost = (outsideFunction, insideFunction) => (startingParameter) => outs
 
 // MORE EXAMPLES OF ADVANCED FUNCTIONS 
 //#1 Create a one line function that adds adds two parameters
-const add2 = (a, b) => a + b; YES
+const add2 = (a, b) => a + b;
+YES
 
 
 //Closure: What does the last line return?
 const addTo = x => y => x + y
 var addToTen = addTo(10)
 addToTen(3)
-//13 YES
+    //13 YES
 
 //Currying: What does the last line return?
 const sum = (a, b) => a + b
 const curriedSum = (a) => (b) => a + b
 curriedSum(30)(1)
-// 31 ?
+    // 31 ?
 YES
 
 //Currying: What does the last line return?
@@ -288,14 +290,14 @@ const sum = (a, b) => a + b
 const curriedSum = (a) => (b) => a + b
 const add5 = curriedSum(5)
 add5(12)
-//17  
+    //17  
 const answer = 17["yes I got it right"];
 
 //Composing: What does the last line return?
 const compose = (f, g) => (a) => f(g(a));
 const add1 = (num) => num + 1;
 const add5 = (num) => num + 5;
-compose(add1, add5)(10)  //16
+compose(add1, add5)(10) //16
 
 //What are the two elements of a pure function?
 "1. Deterministic --> always produces the same results given the same inputs"
@@ -336,8 +338,7 @@ console.log("map", mapArray);
 
 // filter
 
-const array = [
-    {
+const array = [{
         username: "john",
         team: "red",
         score: 5,
@@ -364,8 +365,7 @@ const array = [
 
 ];
 
-const filterArray = array.filter(num => num === 5);
-|| 
+const filterArray = array.filter(num => num === 5); ||
 const filterArray = array.filter(e => e.team === "red");
 console.log("filter", filterArray);
 
@@ -406,7 +406,7 @@ for (var i = 0; i < todosLength; i++) {
     console.log(i);
 }
 
-todos.forEach(function (i) {
+todos.forEach(function(i) {
     console.log(i);
 })
 
@@ -433,7 +433,7 @@ a();
 //function a is inside of the window.
 
 const object4 = {
-    a: function () {
+    a: function() {
         console.log(this);
     }
 }
@@ -538,7 +538,7 @@ console.log(superClone);
 
 
 // SPREAD 
-let clone2 = { ...obj };
+let clone2 = {...obj };
 
 
 
@@ -571,7 +571,8 @@ if (1) {
 }
 
 //there is a concept of -0 and +0 - the code below returns true, even though they are different things.
--0 === +0
+-
+0 === +0
 
 //  object.is   will return false- it's useful because you can NaN === NaN true
 Object.is(-0, +0)
@@ -616,8 +617,7 @@ const fun = (
     b,
     c,
     d,
-) => {
-}
+) => {}
 fun(1, 2, 3, 4);
 
 let obj = {
@@ -680,13 +680,22 @@ Object.entries(obj).map(value => value.join(" ")).join(' ')
 
 const array1 = [1, 2, 3, 4, 5];
 
-const array2 = [1, [2, 3], [4, 5]];
+const array2 = [1, [2, 3],
+    [4, 5]
+];
 
 const array3 = [1, 2, [3, 4, [5]]];
 
 array3.flat(2)
-//  Real world example kind of
-const park = [['🐺', '🐱'], '🐎', '🦌', ['🦓', '🐴'], [[['🥶']]],]
+    //  Real world example kind of
+const park = [
+    ['🐺', '🐱'], '🐎', '🦌', ['🦓', '🐴'],
+    [
+        [
+            ['🥶']
+        ]
+    ],
+]
 park.flat(50);
 
 // Backend users for example have a bunch of empty names, this will clean it up
@@ -697,7 +706,11 @@ entries.flat(20)
 const parkChaos = park.flatMap(creature => creature + '🐴')
 
 // #2 Turn this array into a new array: [ 'Hello young grasshopper!', 'you are', 'learning fast!' ]
-const greeting = [["Hello", "young", "grasshopper!"], ["you", "are"], ["learning", "fast!"]];
+const greeting = [
+    ["Hello", "young", "grasshopper!"],
+    ["you", "are"],
+    ["learning", "fast!"]
+];
 
 console.log(greeting.flatMap(x => x.join(" ")));
 
@@ -714,7 +727,11 @@ This returns
 commanderTom: 23
 name: number
 */
-userProfiles = [['commanderTom', 23], ['derekZee', 40], ['hansel', 18]]
+userProfiles = [
+    ['commanderTom', 23],
+    ['derekZee', 40],
+    ['hansel', 18]
+]
 
 // PINEAPPLE
 const obj = Object.fromEntries(userProfiles);
@@ -733,7 +750,7 @@ const usersArray = Object.entries(users);
 
 // Array to object:
 const users = { user1: 18273, user2: 92833, user3: 90315 }
-// This makes it an array
+    // This makes it an array
 const usersArray = Object.entries(users);
 const fixedArray = userArraysTimes2;
 // This turns it back to an object
@@ -742,7 +759,11 @@ console.log(obj);
 
 
 // #2 Turn this array into a new array: [ 'Hello young grasshopper!', 'you are', 'learning fast!' ]
-const greeting = [["Hello", "young", "grasshopper!"], ["you", "are"], ["learning", "fast!"]];
+const greeting = [
+    ["Hello", "young", "grasshopper!"],
+    ["you", "are"],
+    ["learning", "fast!"]
+];
 
 console.log(greeting.flatMap(x => x.join(" ")));
 
@@ -882,13 +903,13 @@ console.log(biggestNumberInArray3(array3))
 // BigInt is a type of safe number. essentially there is a limit to how much info one can store in memory
 
 // Returns bigInt
-typeof 1n
+typeof 1 n
 
 // returns 9007199254740991
 Number.MAX_SAFE_INTEGER
 
 // As soon as number is bigger than 9... it breaks unless you add n to BOTH  numbers
-9007199254740991n + 20n
+9007199254740991 n + 20 n
 
 
 // Optional chaining operator  it avoids all the chekcing of if statements. ?.
@@ -909,16 +930,16 @@ let delilah_pokemon = {
 }
 
 // This Optional chaining operator checks if delil has an object, is there an object of del poke or pikachu - works on objects and checking their properties - 
-let power = delilah_pokemon?.pikachu?.power || 'No Power'
+let power = delilah_pokemon ? .pikachu ? .power || 'No Power'
 
 console.log(power)
 
 
 const answer = "ANSWER"
 
-if (andrei_pokemon && andrei_pokemon.raichu && will_pokemon
-    && will_pokemon.pikachu && will_pokemon.pikachu.friend
-    && will_pokemon.pikachu.friend.charizard) {
+if (andrei_pokemon && andrei_pokemon.raichu && will_pokemon &&
+    will_pokemon.pikachu && will_pokemon.pikachu.friend &&
+    will_pokemon.pikachu.friend.charizard) {
     console.log('fight!')
 } else {
     console.log('walk away...')
@@ -952,7 +973,7 @@ let andrei_pokemon = {
     }
 }
 
-if (andrei_pokemon?.raichu && will_pokemon?.pikachu?.friend?.charizard) {
+if (andrei_pokemon ? .raichu && will_pokemon ? .pikachu ? .friend ? .charizard) {
     console.log('fight!')
 } else {
     console.log('walk away...')
@@ -962,7 +983,7 @@ if (andrei_pokemon?.raichu && will_pokemon?.pikachu?.friend?.charizard) {
 
 // Nullish coalescing operator ?? - often used instead of the or || For example, the pikachu might not NOT ever not have power, but we don't wanna say "no power" if it may have power later. (0 = a value and we will have a power, but if we were using || it would return no power.)
 
-let power = delilah_pokemon?.pikachu?.power ?? 'No Power'
+let power = delilah_pokemon ? .pikachu ? .power ? ? 'No Power'
 console.log(power)
 
 
@@ -971,7 +992,7 @@ console.log(power)
 const str = "i am cool of the coolest"
 
 str.replaceAll("cool", "worst")
-// If I wanted it to stay, I would assign it to a const.
+    // If I wanted it to stay, I would assign it to a const.
 const change = str.replaceAll("cool", "worst");
 
 
@@ -982,10 +1003,19 @@ const change = str.replaceAll("cool", "worst");
 Step 1: Read the code and understand what's happening.: Assigning a var that has a nested array, the code wants to be flattened, but reduce is being used so we know that a is the accumalotor and b is the array. We want the accumaltor to start off with an empty array. it will attach the contents of array into the (empty array) - we need to return it because we removed it from a single line, which already implicity means return - Arrow function NEEDS  a return
 
 */
-const flattened = [[0, 1], [2, 3], [4, 5]].reduce(a, b) => a.concat(b), [];
+const flattened = [
+        [0, 1],
+        [2, 3],
+        [4, 5]
+    ].reduce(a, b) => a.concat(b),
+    [];
 
 // changes to this: 
-const flattened = [[0, 1], [2, 3], [4, 5]].reduce(
+const flattened = [
+    [0, 1],
+    [2, 3],
+    [4, 5]
+].reduce(
     (accumulator, array) => {
         debugger;
         console.log('accumlator', accumulator)
@@ -1019,7 +1049,7 @@ const Callstack2 = " it deletes one after one, once it has ran. it is then empty
 console.log('4')
 two()
 one()
-// Callstack
+    // Callstack
 
 
 const question5 = "Javascript is a single threaded language that can be non-blocking"
@@ -1097,7 +1127,8 @@ say hello **(only on Mac)**
 Echo - repeats what u say back to the teminal
 */
 
-const qouka = ">Quoka" /* SHOWS YOU WHAT THE MISSTAKES ARE
+const qouka = ">Quoka"
+    /* SHOWS YOU WHAT THE MISSTAKES ARE
 
 To open a new Quokka file use Cmd/Ctrl + K, J for JavaScript, or Cmd/Ctrl + K, T for TypeScript. To start/restart Quokka on an existing file, use Cmd/Ctrl + K, Q.
 
@@ -1320,7 +1351,28 @@ Seperation of concerns: React has the idea of components, it's better to have fu
     HELLO.js
     <p>{this.props.greeting}</p> -- this(hello) has properties of greeting (index.js)\
 
+        <img src="https://robohash.org/test?200x200" alt="Robots" /> - can choose any name and replace the size too.
+           <div className="bg-light-pink dib br3 pa3 ma2 grow  "> - bg color, dib, border, padding, margin, grow animation 
+
+
+
+           import React from 'react';
+
+const Card= (props)  => {
+   return ( 
+   <div className="bg-light-pink dib br3 pa3 ma2 grow bw2 shadow-2  ">
+        <img src= {`https://robohash.org/${props.id}?200x200` }alt="Robots" />
+    <div>
+        <h2>{props.name}</h2>
+        <p>{props.email}l</p>
+    </div>
+    </div>
+    );
+}
+export default Card;
+Robohash site now has an ID of the name
+
+import { robots } from './robots' index.js
 
 
 */
-
