@@ -1372,7 +1372,81 @@ const Card= (props)  => {
 export default Card;
 Robohash site now has an ID of the name
 
+
+
+
 import { robots } from './robots' index.js
+
+ReactDOM.render(
+    <CardList robots={robots} />
+    , document.getElementById('root')
+);s
+CardList Robots is accepting a property called robots
+
+
+key prop should have something that doesn't change. For example Index (i) could change if array items get moved. So a better ket in this case would be something unique like id
+
+STATE means the description of your app.  a "state" is an object that describes your application
+
+Turn into class from this:
+const App = () => {
+    return (
+        <div className="tc" >
+            <h1>RoboFriends</h1>
+            <SearchBox />
+            <CardList robots={robots} />
+        </div>
+    );
+}
+export default App;
+----
+to This:
+
+class App extends Component {
+    render() {
+        return (
+            <div className="tc" >
+                <h1>RoboFriends</h1>
+                <SearchBox />
+                <CardList robots={robots} />
+            </div>
+        );
+    }
+}
+export default App;
+
+--
+class App extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            robots: robots,
+            searchfield: ''
+        }
+    }
+    render() {
+        return (
+            <div className="tc" >
+                <h1>RoboFriends</h1>
+                <SearchBox />
+                <CardList robots={robots} />
+            </div>
+        );
+    }
+}
+export default App;
+
+
+ onSearchChange(event) => {
+    console.log(event.target.value);
+    const filteredRobots = this.state.robots.filter(robot => {
+        return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+
+Stuff like construct and render are prebuilt in react, but nay time you mkae yourown method on a component use this function (arrow functions ++ this)
+
+robot => {
+        return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
 
 
 */
