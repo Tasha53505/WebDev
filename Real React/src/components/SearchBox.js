@@ -5,10 +5,10 @@ const SearchBox = ({ searchChange }) => {
 
         <div className='pa2'>
             <input
-                className='pa3 ba b--pink bg-washed-red'
+                className='pa2 ba b--pink bg-washed-red'
                 type="search"
                 placeholder='Search Robots'
-                onChange={searchChange()}
+                onChange={searchChange}
             />
         </div>
     )

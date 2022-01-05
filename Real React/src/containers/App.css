@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Dubstep Dungeons Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Dubstep Dungeons Regular'), url('Dubstep Dungeons.woff') format('woff');
+}
+
+h1 {
+    font-family: 'Dubstep Dungeons Regular';
+    font-weight: 200;
+    color: white;
+    letter-spacing: 1rem;
+}

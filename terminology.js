@@ -1449,4 +1449,55 @@ robot => {
         return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
 
 
+API Is when a website gets loaed it will make a request somewhere out there in the internet and grab the robots from a server. You can do that with JSON placeholder.
+State makes something a smart componen and they tend to have the class app extends  syntax
+
+MOUNTING: is when refreshing a page, the app components get mounted into the document with the id of root. Mounting is replacing index.html (div id=root) with the entirity of App
+UPDATING: Whenever a component changes. e.g every time something is typed in the search bar, the card components gets re-rendered.
+UNMOUNTING: When a component is removed from a page, e.g changing to a different page, the component will unmount, the app component will get deleted from the page
+LIFECYCLE HOOKS: It's called that because they get run every time a component does something and it comes with react. Automatically triggered,
+
+componentDidMount() {
+    this.setState({robots: robots})
+}
+Loads suuuuuper quick ^^^
+
+"Scroll.js" can use "children" as a way to render its children
+
+
+CLEANING UP:
+if (robots.length === 0) {
+            return <h1 > Loading </h1>
+        } else {
+            return ( < div className = "tc" >
+                <h1 className = 'f1 ' > RoboFriends </h1> 
+                <SearchBox searchChange = { this.onSearchChange } /> 
+                <Scroll >
+                <CardList robots = { filteredRobots }/>
+                 </Scroll> 
+                 </div>
+
+
+            );
+        }
+    }
+
+    TURNS TO:
+    if (!robots.length) {
+            return <h1 > Loading </h1>
+        } else {
+            return ( < div className = "tc" >
+                <h1 className = 'f1 ' > RoboFriends </h1> 
+                <SearchBox searchChange = { this.onSearchChange } /> 
+                <Scroll >
+                <CardList robots = { filteredRobots }/>
+                 </Scroll> 
+                 </div>
+
+
+            );
+        }
+    }
+ONCE FINISHED. Go npm run buld in bash and it will minify and optimize everything
+
 */
