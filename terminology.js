@@ -1498,10 +1498,43 @@ if (robots.length === 0) {
             );
         }
     }
+
+ERROR BOUNDARIES: if there were errors within the component -
+
+
+
+
 ONCE FINISHED. Go npm run buld in bash and it will minify and optimize everything
 
 npm audit fix
 npm audit
 npm update
+
+
+
+
+DEPLOYMENT
+1==
+Add to package.json file:
+    "homepage": "https://tasha53505.github.io/nameOfRespo",
+
+2 ==
+npm install --save gh-pages
+
+go to scripts:
+ "predeploy": "npm run build",
+  deploy": "gh-pages -d build"
+
+3==
+npm run deploy
+
+4==
+Go to Github respo
+settings
+scroll down to github pages
+change source to github pages branch instead of main
+
+
+Go to Respo and click edit button and add site
 
 */
