@@ -1500,4 +1500,8 @@ if (robots.length === 0) {
     }
 ONCE FINISHED. Go npm run buld in bash and it will minify and optimize everything
 
+npm audit fix
+npm audit
+npm update
+
 */
