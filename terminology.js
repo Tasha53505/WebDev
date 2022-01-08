@@ -1537,4 +1537,112 @@ change source to github pages branch instead of main
 
 Go to Respo and click edit button and add site
 
+
+
+HTTP = Hypertext transfer protocol - The server understands the site because it's speaing HTTP. Common  language that the client and server can use.
+The messages sent by the client are called requests and the messages sent by the server are called responses. 
+
+GET - Get an HTML file- ask to get something
+POST - Send some data to google servers and POST / add it to the datavbase
+PUT - Update data that already exisits in google servers and update it with new info
+DELETE - Delete  a piece of data on the backend, on the servers, database or backend.
+
+Twitter example: 
+Get  - Receive the twitter feed with all the tweets from today
+POST = Created a new user and  you want to add the  new user to the Twitter servers
+PUT - Made a tweet, but you want to make a change or edit it
+DELETE -  Delete a tweet or user account
+
+
+Over the years, HTTP was extended to not onlt worry about fetching docs, but also images, videos and post content to servers like HTML form results.
+HTTP can also be used to fecth part of documents to update the webpages on demand whcih is called AJAX.
+Forms = method=get
+look at query string params.
+forms method POST  - no password is shown in the url
+
+HTTPS = Hypertext transfer protocol Secure- COmmunication between the browser and websites are encryted
+
+
+ Data when posted something, can't post anything when exchnaging data between a brower and a  server, it can only be text. 
+ 
+JSON = JAVASCRIPT OBJECT NOTATION - Syntax for storing and exchanging data and it's text.
+Used to send data between a machine. XML is  another way. XML uses HTML like syntx and JSON uses JS object like syntax.
+JSON is used more than XML because it's easier to load the data into an object tree bevcause it's so similar to a JS object. JSON format is a more succint way which saves bandiwdth and imprives response times when sending messages abck and fourth between client and servers.
+Standard way to send data over the wires and receive it. 
+JSON can be read by any language.
+
+var myJSON = JSON.stringify(obj) - Give it an object and it will return it as JSON
+var obj = JSON.parse(what stringify gave me) = Wrap it as a paramenter of parse and it will return it as an object.
+
+XML = Isn't very effiecient. You will still see xml  but it's outdated
+
+AJAX:
+Allows you to read from a web server after the page has loaded and update the webpage without reloading. It would send data in the background while the user is interracting with the site
+A method of combining pieces togetehr to achieve this. 
+Fetch is the new way to do this. 
+fetch('/my/url').then(response => {
+    response
+})
+Less data is downloaded on each  update meaning less wasted bandwidth.
+
+EXAMPLE:
+componentDidMount() {
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(users => this.setState({ robots: users }));
+
+    }
+
+Fetch is a window object.  URL returns a json object. 
+Response => response.json
+
+Promise (js) = Promise is when a request is made over the internet will promise to let you know when the value is returned.
+Acces promises  by .then was a promise which we needed to do a promise again
+
+
+Callbacks (ES5 and below)
+When something is done, execute this piece of code.
+Text bob and ask what's that one song from Backstreet boys
+When bob has time he will call me back and say "Oh it's I want it that way"
+el.addEventListener("click", submitForm);
+Callback pyramid of doom.
+
+
+
+Promise is an object that may produce a single value somewhere in the future.
+There are 3 possible states:
+Fulfilled -
+Rejected -
+Pending -
+
+
+
+
+
+
+
+
+el.addEventListener("click", submitForm);
+
+//PYRAMID OF DOOM.
+movePlayer(100, 'Left', function() {
+    movePlayer(400, 'Left', function() {
+        movePlayer(10, 'Right', function() {
+            movePlayer(330, 'Left', function() {
+
+            })
+        })
+    })
+})
+
+turns to a promise:
+
+    movePlayer(100, "Left")
+    .then(() => movePlayer(400, "Left"))
+    .then(() => movePlayer(10, "Right"))
+    .then(() => movePlayer(330, "Left"))
+
+
+
+
 */
