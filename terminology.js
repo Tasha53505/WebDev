@@ -1221,10 +1221,21 @@ Or you can follow along another method here: "Syncing a fork."
 
 
 /*
+STARTING REACT APP:
+$ npx create-react-app nameOfApp
+cd nameOfApp
+npm start
+
+npm install tachyons
+add the import 'tachyons' to index.js
+className="stuff from tachyons"
+ className='f3 link dim black underline pa3 pointer'>Sign Out</p> - font 3, link, dim on hover and black
+
+
 NPM (node packacge manager): bunch of js files that others have written
 npm -v || node -v    - checks version
 permission errors = sudo npm install react || etc
-anytime you START  a project: npm init (creates a package json file)
+anytime you START  a project: npm init (creates a package json file) THIS ONE(NPM)
  - g - globally || -l = locally (New abilities in the file)
 
 Lodash - 
@@ -1447,6 +1458,9 @@ Stuff like construct and render are prebuilt in react, but nay time you mkae you
 
 robot => {
         return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+
+    destructuring
+             const {isSignedIn, imageUrl, route, box } = this.state;
 
 
 API Is when a website gets loaed it will make a request somewhere out there in the internet and grab the robots from a server. You can do that with JSON placeholder.
@@ -1834,10 +1848,224 @@ const getData = async function() {
         console.log('albums', albums)
     } catch (err) {
         console.log('Oh no', err)
+        
     }
 }
 
 
+or this:
+
+
+const getData = async function () {
+  try {
+    const [users, posts, albums] = await Promise.all(
+      urls.map(async function (url) {
+        const response = await fetch(url);
+        return response.json();
+      }),
+    );
+    console.log("users", users);
+    console.log("posta", posts);
+    console.log("albums", albums);
+  } catch (err) {
+    console.log("ooooooops", err);
+  }
+};
+
+
+
+
+
+// ES9
+
+// Object spread operator
+const animals = {
+    tiger: 23,
+    lion: 5,
+    monkey: 3,
+    bird: 90
+}
+
+// Call it whatever you want (rest) - calling  rest will go lion and monkey
+const { tiger, lion, ...rest } = animals;
+
+
+function objectSpread(p1, p2, p3) {
+    console.log(p1)
+    console.log(p2)
+    console.log(p3)
+}
+
+objectSpread(tiger, lion, rest)
+
+// Same thing for arrays
+const array = [1, 2, 3, 4, 5];
+
+function sum(a, b, c, d, e) {
+    return a + b + c + d + e;
+}
+
+sum(...array) //returns 15 - same as doing sum(1,2,3,4,5)
+
+// finally - able tpo do something after a promise is finished.
+// Used when you want to send an email to a user regardless of the request was succuessful or failed. 
+// Maybe a notification too
+const urls = [
+    'https://swapi.co/api/people/1',
+    'https://swapi.co/api/people/2',
+    'https://swapi.co/api/people/3',
+    'https://swapi.co/api/people/4'
+]
+
+Promise.all(urls.map(url =>
+        fetch(url).then(people => people.json())
+    ))
+    .then(array => {
+        console.log('1', array[0])
+        console.log('2', array[1])
+        console.log('3', array[2])
+        console.log('4', array[3])
+    })
+    .catch(err => console.log('ughhhh fix it!', err))
+    .finally(data => console.log('extra'));
+
+
+// For await of - loops through async await calls
+
+const urls = [
+    'https://jsonplaceholder.typicode.com/users',
+    'https://jsonplaceholder.typicode.com/posts',
+    'https://jsonplaceholder.typicode.com/albums'
+]
+
+
+const getData = async function() {
+        try {
+            const [users, posts, albums] = await Promise.all(
+                urls.map(async function(url) {
+                    const response = await fetch(url);
+                    return response.json();
+                }),
+            );
+            console.log("users", users);
+            console.log("posta", posts);
+            console.log("albums", albums);
+        } catch (err) {
+            console.log("ooooooops", err);
+        }
+    }
+    // For of
+const loopThroughUrls = url => {
+    for (url of urls) {
+        console.log(url)
+    }
+}
+
+
+// For await of 
+const getData2 = async function() {
+    const arrayOfPromises = urls.map(url => fetch(url));
+    for await (let request of arrayOfPromises) {
+        const data = await request.json();
+        console.log(data);
+    }
+}
+
+// es2020
+
+// allSettled - Promise.all would fail this because of a rejection - 
+// But Promise.allSettled([]) would run both promises and output  runs all promises regardless of whether they're rejectjed or not.
+const promiseOne = new Promise((resolve, reject) =>
+    setTimeout(resolve, 300))
+
+const promiseTwo = new Promise((resolve, reject) =>
+    setTimeout(reject, 3000))
+
+Promise.allSettled([promiseOne, promiseTwo]).then(data => console.log(data))
+    .catch(e => console.log('Something has failed.', e));
+
+// ES2021 
+
+// any()
+// "Promise.any() resolves if any of the supplied promises is resolved Below we have 3 promises, which resolves at random times."
+const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("A"), Math.floor(Math.random() * 1000));
+});
+const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("B"), Math.floor(Math.random() * 1000));
+});
+const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("C"), Math.floor(Math.random() * 1000));
+});
+
+(async function() {
+    const result = await Promise.any([p1, p2, p3]);
+    console.log(result); // Prints "A", "B" or "C"
+})();
+//   What if none of the promises resolve? In that case Promise.any() throws an error
+
+
+// Backend server
+// CDN Content delivery NEtwork (Minifying scripts)
+
+// PostSQL and mongoDB  | HOSTGATOR (LAMP STACK)
+// LoadBalancer - multiple servers in different places(listens to where the person is)
+
+
+// API means Application programming interface is a messenger that takes requests and tells the system what to do. 
+
+           <img src={imageUrl} alt="Face_Detection" width='500px'  height='auto'/> == Height is automatically ajusted based on the width
+
+      Clarifai.COLOR_MODEL, 
+- 
+ onButtonSubmit = () => {
+    console.log('click');
+    this.setState({imageUrl: this.state.input})
+    app.models.predict(
+      Clarifai.COLOR_MODEL, 
+      "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/03/GettyImages-1092658864_hero-1024x575.jpg?w=1155&h=1528")
+      .then(
+  function(response) {
+  console.log(response)
+  },
+  function(err) {
+// If there is an error.    
+  }
+    );
+
+  }
+
+
+
+IF you're going ot grab something from app.js into soemthing like Signin, you need to put the name in the () in order to basically "getElementbyID"
+
+
+app.js
+onRouteChange = () => {
+    this.setState({route: 'home'})
+  }
+
+ <Signin onRouteChange={this.onRouteChange} />
+
+Navigation.js
+const Navigation = (onRouteChange) => {
+    return (
+        <nav style={{display: 'flex', justifyContent: 'flex-end'}}>
+            <p 
+            onClick={onRouteChange}
+             className='f3 link dim black underline pa3 pointer'>Sign Out</p>
+ 
+        </nav>
+    )
+}
+
+
+unexpected token may mean you need to add a const
+
+Node is JS that runs on your machine. Node Js created with the V8 engine in order to 
+run JS anywhere. Running commands in NPM like "create react app" was using Node. Node
+JS is the server of chouce for any web apps or mobile apps that want an API or server.
+It's also very good at building chat applications and real time communication.
 
 
 */
