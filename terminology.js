@@ -1096,7 +1096,7 @@ const scriptTags = "Next was script tags- script text/js src = '' - the problem 
 const IIFE = "Immediately invoked function expression, Wraps a function in brackets - meaning it wouldn't pollute the global name space. The order of the files were still lack of dependecy reoslution. "
 
 
-const browserify = "It used CommonsJS - for the eirst js file, you wanted function add, module.exports  but on the second js2 file, you would use add and require tag. It used a module bundler which means it would run  the files before you loaded the website and complied the scripts into one script. Usually something like mondal.js"
+const browserify = "It used CommonJS - for the eirst js file, you wanted function add, module.exports  but on the second js2 file, you would use add and require tag. It used a module bundler which means it would run  the files before you loaded the website and complied the scripts into one script. Usually something like mondal.js"
 
 const ES6 = "export and import. i.e for 1 file you can just export default. to sue the add function, you'd say import { add } from './add"
 
@@ -2062,10 +2062,60 @@ const Navigation = (onRouteChange) => {
 
 unexpected token may mean you need to add a const
 
+
+
+
+
+
+
+
+
+
+
 Node is JS that runs on your machine. Node Js created with the V8 engine in order to 
 run JS anywhere. Running commands in NPM like "create react app" was using Node. Node
 JS is the server of chouce for any web apps or mobile apps that want an API or server.
 It's also very good at building chat applications and real time communication.
+
+Johnny 5 = raspberry pi robots
+
+open node js
+proess = what the computer is doing right now
+
+
+
+const a = 5;
+const b = 6;
+
+setTimeOut == second param is the time
+setTimeout(() => {
+    console.log(a + b);
+}, )
+
+
+console.log(__dirname); - will tell you the directory you're in. This is useful when building servers beacuse
+
+ES2020:
+globalThis - equals to window. Globalthis works outside of browser meaning a unified codebase is a possibilty (running app in node + broswer)
+
+Node DOESN'T have the import feature yet
+so you use this (CommonJS): 
+
+const whateverName = require("./script2");
+
+const a = whateverName.largeNumber;
+const b = 6;
+
+
+console.log(a + b);
+
+
+OTHER FILE:
+module.exports = {
+    largeNumber: largeNumber
+};
+
+
 
 
 */
