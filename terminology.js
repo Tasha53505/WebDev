@@ -1235,7 +1235,8 @@ className="stuff from tachyons"
 NPM (node packacge manager): bunch of js files that others have written
 npm -v || node -v    - checks version
 permission errors = sudo npm install react || etc
-anytime you START  a project: npm init (creates a package json file) THIS ONE(NPM)
+anytime you START  a project: npm init (creates a package.json file) THIS ONE(NPM)
+DOESN'T NEED CREATE REACT APP TO INSTALL NPM STUFF LIKE TACHYONS
  - g - globally || -l = locally (New abilities in the file)
 
 Lodash - 
@@ -2114,6 +2115,157 @@ OTHER FILE:
 module.exports = {
     largeNumber: largeNumber
 };
+
+THIS: 
+export const largeNumber = 356;
+
+
+
+
+but you need to specify if you're going to do it the other wat around -
+to do that you can rename files to .mjs
+OR
+You can have .js files and use npm init for the package.json and add  "type": "module",
+to it
+
+
+**3** types of Modules for node:
+
+1. The ones you create yourself, it has module exports and you give the path to the 
+. Script2 with require and export.
+
+2. built-in modules (preinstalled with node) i.e
+import c from 'fs';
+console.log(c);
+This will give you a list of predefined functions available to use for example - 
+having a text file and read through the file and extract the amount of times it said the
+word "hello". (readFile or  readFileSync)
+OR the http module: (servers)
+
+3. NPM/ package - use nodemon it can be used cause it's in the node_modules.bin. - it updates as you're typing instead of saying
+node script.js everytime.
+    make a script that says "start": "nodemon fileName" filename i.e server.js
+npm install nodemon --save-dev
+dev dependencies are only used when developping. when realeased, it won't 
+
+server.listen(3000) Listens for the port number (any number )
+
+
+CREATING A SERVER:
+
+In order to pass a const through response.end you need to JSON.stringify(user)
+
+import { createServer } from "http";
+THIS -------------------------
+const server = createServer((request, response) => {
+    // console.log('header', request.headers);
+    console.log('method', request.method);
+    console.log('url', request.url);
+    const user = {
+        name: "John",
+        hobby: "Art"
+    }
+
+
+    response.setHeader('Content-Type', 'application/json');
+    response.end(JSON.stringify(user));
+
+})
+-----------------------------
+server.listen(3000);
+
+BUT. The best one to use would be Express:
+    npm install express:
+------
+import express from 'express';
+const app = express();
+app.listen(3000);
+--------
+npm start
+app.get('/', (req, res)) - 1st is the path and 
+2nd is the req and res.
+
+
+
+import express from 'express';
+const app = express();
+
+// Get, post, put, use delete - if you go to that place, do this.
+it uses GET to receive a resource, PUT to change the state/update resourse, 
+POST to creare a resource and DELETE to removoe it
+
+
+app.get('/', (req, res) => {
+    res.send("Getting root.");
+});
+
+app.get('/profile', (req, res) => {
+    res.send("Getting pofile.");
+});
+
+app.post('/profile', (req, res) => {
+    const user = {
+        name: "Sally",
+        hobby: "Fencing"
+    }
+    res.send(user);
+})
+app.listen(3000)
+
+Middleware: recieves something ahead of time before it gets to the routes, the request and 
+modifies it and passes the next function to keep it going.
+app.use((req, res, next) => {
+    console.log("<h1>Helloooo</h1>")
+    next()
+})
+
+next() is moving onto the next function. - it gets the req 
+of the website- this is useful because
+
+https://www.postman.com = BEST api for working with servers.
+POSTMAN: A good way to test our your server before you connect it your front-end.
+x-www-form-urlencoded (in the body, is for forms)
+
+
+app.post('/profile', (req, res) => {
+    console.log(req.body)
+    const user = {
+        name: 'Tasha',
+        hobby: 'Programming'
+    }
+    res.send(user);
+}) ----> To access  user console.log(req.body) --> 
+
+app.use(urlencoded({ extended: false }));
+app.use(json()); - this will make it so you can type raw (JSON) and it will pass a user say in the node server
+
+
+RESTful API
+This defines a set of cuntions which developers can perform 
+requests and receive responses via http protocol (get, post put, delete)
+A restful API will follow the tules that everyone can agree on so that we have
+compatibility between systems.
+it uses GET to receive a resource, PUT to change the state/update resourse, 
+POST to creare a resource and DELETE to removoe it.
+
+MOST USED REQ (REQUESTS)    
+    req.query - Get query, console.log(req.query) -- localhost:300/?name=tasha&age=32
+
+    req.body  - using stuff like urlencoded (postman) or JSON body-parsers, add middleware to recieve 
+    whatever the request sends to the body. 
+
+    req.headers - use postman BUT make sure ur code says console.log(req.headers)
+    go to headers tab (GET) and create key + value
+
+    req.params - console.log(req.params) below:
+
+    app.get('/:id', (req, res) => {
+    console.log(req.params)
+    res.send("Getting root.");
+}); 
+localhost:3000/1234 -GET  then send --> this will  send "id: 1234 " to the server.
+
+To get the server to read public files like index.html:
 
 
 
