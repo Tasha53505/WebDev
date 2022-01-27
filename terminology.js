@@ -2277,4 +2277,29 @@ To get the server to read public files like index.html:
 
 When sending data to the front-end using JSON, we need to remember to 
 parse it cause express doesn't kmow what we sent over
+
+npm install bcryptjs - Password storing hashing
+
+Hashing:
+in register:
+ bcrypt.hash(password, 8, function(err, hash) {
+            console.log(hash)
+        });
+
+in signin:
+ bcrypt.compare("apples", "HashNum ", function(err, res) {
+            console.log("First guess", res)
+        });
+        bcrypt.compare("wrongOne", "hash num", function(err, res) {
+            console.log("2nd guess", res)
+                // res === false
+        });
+
+        // As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
+        bcrypt.compare("B4c0/\/", "hash num").then((res) => {
+            // res === true
+        });
+
+
+
 */
