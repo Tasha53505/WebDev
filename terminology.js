@@ -2269,5 +2269,12 @@ To get the server to read public files like index.html:
 
 
 
+/ --> res = this is working
+/signin --> POST = success/fail
+/register --> POST = user
+/profile/:userId --> GET = user
+/image --> PUT = user
 
+When sending data to the front-end using JSON, we need to remember to 
+parse it cause express doesn't kmow what we sent over
 */
