@@ -2300,6 +2300,15 @@ in signin:
             // res === true
         });
 
+DBMS = Databasa management systms
+
+PostgreSQL 
+= Relational DB---> SQL --> 2  or more tables with columns and rows.
+each row represents an entry.
+column stores important info = name, addresses etc
+Full name / ID etc that identifies each row in  a table is called a primary key
+
+NoSQL --> mongoDB --> don't need to define the schema. 
 
 
 */
