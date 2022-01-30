@@ -2307,8 +2307,61 @@ PostgreSQL
 each row represents an entry.
 column stores important info = name, addresses etc
 Full name / ID etc that identifies each row in  a table is called a primary key
+Pre defined users (all users) with tweets etc.
+Command prompt:
 
-NoSQL --> mongoDB --> don't need to define the schema. 
+psql -U postgres 
 
+createdb -U postgres nameOfDatabase
+psql -U postgres nameoFDatabase - enter DB (DO THIS to go straight to a DB)
+
+
+TABLES"
+CREATE TABLE table_name (column_1 datatype, column_2 datatype, column_3 datatype)
+
+i.e
+CREATE TABLE table_name (name text, age smallint, birthday date)
+or
+ CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255));
+\dt - will display tables
+
+pgadmin 4 Db name, schemas, tables, tablename, columns, right clck on DB name (users)(view all rows)
+
+list of Schema = \d
+
+COMMANDS for databases:
+psql -U postgres 
+psql -U postgres nameoFDatabase - enter DB (DO THIS to go straight to a DB)
+\d --> schema
+\db --> list of Dbs
+\q - quit
+CREATE TABLE table_name (column_1 datatype, column_2 datatype, column_3 datatype); i.e CREATE TABLE table_name (name text, age smallint, birthday date);
+INSERT INTO table_name (column_1, column_2, column_3) VALUES (value_1, 'value_2', value_3 ); i.e test=# INSERT INTO users (name, age, birthday) VALUES ('Tasha', 18, '2003-10-14');
+ SELECT val1, val2, val3 FROM  dbName - SELECT name, age, birthday FROM users; - will display the data I received.
+ SELECT * - selects everything - SELECT * FROM dbName
+ ALTER TABLE table_name ADD column datatype; -    ALTER TABLE users ADD score smallint;
+ UPDATE table_name SET column_name = a_value WHERE column_name = a_value - UPDATE users SET score = 50 WHERE name='Tasha'; - upfates one user
+ UPDATE users SET score = 50 WHERE name='Tasha' OR name='Cara'; - updates BOTH users
+
+
+NoSQL --> mongoDB --> don't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
+not predefined. Has each user as a seperate document.  but user_1  has EVERYTHUING. The tweets, follows etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// cd Documents/GitHub/face-recognition-ai/face-recognition-ai
 
 */
