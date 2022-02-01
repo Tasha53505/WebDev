@@ -2337,11 +2337,25 @@ psql -U postgres nameoFDatabase - enter DB (DO THIS to go straight to a DB)
 \q - quit
 CREATE TABLE table_name (column_1 datatype, column_2 datatype, column_3 datatype); i.e CREATE TABLE table_name (name text, age smallint, birthday date);
 INSERT INTO table_name (column_1, column_2, column_3) VALUES (value_1, 'value_2', value_3 ); i.e test=# INSERT INTO users (name, age, birthday) VALUES ('Tasha', 18, '2003-10-14');
- SELECT val1, val2, val3 FROM  dbName - SELECT name, age, birthday FROM users; - will display the data I received.
- SELECT * - selects everything - SELECT * FROM dbName
- ALTER TABLE table_name ADD column datatype; -    ALTER TABLE users ADD score smallint;
- UPDATE table_name SET column_name = a_value WHERE column_name = a_value - UPDATE users SET score = 50 WHERE name='Tasha'; - upfates one user
- UPDATE users SET score = 50 WHERE name='Tasha' OR name='Cara'; - updates BOTH users
+SELECT val1, val2, val3 FROM  dbName - SELECT name, age, birthday FROM users; - will display the data I received.
+SELECT * - selects everything - SELECT * FROM dbName
+ALTER TABLE table_name ADD column datatype; -    ALTER TABLE users ADD score smallint;
+UPDATE table_name SET column_name = a_value WHERE column_name = a_value - UPDATE users SET score = 50 WHERE name='Tasha'; - upfates one user
+UPDATE users SET score = 50 WHERE name='Tasha' OR name='Cara'; - updates BOTH
+LIKE -SELECT * FROM dbName  WHERE column LIKE 'A%' =  SELECT * FROM users WHERE name LIKE 'C%' - Will  grab all users that start with C 
+                                                            SELECT * FROM dbName  WHERE column LIKE '%A' - all names ending in A
+ORDER BY - SELECT * FROM dbname ORDER BY column DESC/ASC;- order a column by asc/desc  - SELECT * FROM users ORDER BY score DESC; 
+AVG() - SELECT AVG(column name) FROM dbname; - SELECT AVG(score) FROM users;
+SUM() - SELECT SUM(colname) FROM dbname; -  SELECT SUM(age) FROM users;
+COUNT()  - counts how mant rows are there--> SELECT COUNT(colname) FROM dbname; - SELECT COUNT(name) FROM users -- 
+
+2:40 HEADQUARTERS - eyes.
+
+10:30 for hair thurs
+
+1p for makeup thurd
+
+
 
 
 NoSQL --> mongoDB --> don't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
