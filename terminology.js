@@ -2283,11 +2283,12 @@ TypeError: Assignment to constant variable - see if changing to let will work.
 
 
 
-*/
+
 
 
 <<
-<< << < Updated upstream
+<<
+<< < Updated upstream
 
 but you need to specify
 if you 're going to do it the other wat around -
@@ -2391,6 +2392,7 @@ app.listen(3000)
 
 Middleware: recieves something ahead of time before it gets to the routes, the request and
 modifies it and passes the next
+
 function to keep it going.
 app.use((req, res, next) => {
     console.log("<h1>Helloooo</h1>")
@@ -2398,6 +2400,7 @@ app.use((req, res, next) => {
 })
 
 next() is moving onto the next
+
 function. - it gets the req
 of the website - this is useful because
 
@@ -2451,7 +2454,7 @@ To get the server to read public files like index.html:
 
 
     / --> res = this is working /
-    signin-- > POST = success / fail /
+signin-- > POST = success / fail /
     register-- > POST = user /
     profile /: userId-- > GET = user /
     image-- > PUT = user
@@ -2636,7 +2639,7 @@ I have nothing to be afraid of because you 're not leaving, or going anywhere.
 // cd Documents/GitHub/face-recognition-ai/face-recognition-ai
 
 *
-/ ===
-=== = *
-/ >>>
->>> > Stashed changes
+/ === ===
+= *
+/ >>> >>>
+> Stashed changes
