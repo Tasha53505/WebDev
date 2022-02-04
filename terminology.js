@@ -2348,6 +2348,8 @@ ORDER BY - SELECT * FROM dbname ORDER BY column DESC/ASC;- order a column by asc
 AVG() - SELECT AVG(column name) FROM dbname; - SELECT AVG(score) FROM users;
 SUM() - SELECT SUM(colname) FROM dbname; -  SELECT SUM(age) FROM users;
 COUNT()  - counts how mant rows are there--> SELECT COUNT(colname) FROM dbname; - SELECT COUNT(name) FROM users -- 
+DELETE FROM dbName WHERE colname='coldata' - DELETE FROM users WHERE name='Sally';
+DROP TABLE tablename; - deletes whole table --> DROP TABLE users;
 
 CREATE TABLE login (
     ID serial NOT NULL PRIMARY KEY,
@@ -2359,9 +2361,18 @@ NOT NULL --> it has to be a filled in property  // Required.
 PRIMARY KEY --> ID is the primary key, it's what you want to access when looking for things. Primary key is unique to each row. (one per table) I.e ID or email. Fast way of grabbing / selecting info
 secret VARCHAR -->  secret value (hash) won't be greater than VARCHAR (100)
 name text UNIQUE --> unique means that if "name" already exists we can't insertt into it.
+SELECT * FROM db1 JOIN db2 ON db1.colname = db2.sameColName; -->  SELECT * FROM users JOIN login ON users.name = login.name;
+
+ 
 
 
-
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	name VARCHAR(100),
+	email text UNIQUE NOT NULL,
+	entries BIGINT DEFAULT 0,
+	joined TIMESTAMP NOT NULL
+);
 
 
 
