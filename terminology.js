@@ -1232,6 +1232,7 @@ className="stuff from tachyons"
  className='f3 link dim black underline pa3 pointer'>Sign Out</p> - font 3, link, dim on hover and black
 
 
+
 NPM (node packacge manager): bunch of js files that others have written
 npm -v || node -v    - checks version
 permission errors = sudo npm install react || etc
@@ -1253,6 +1254,9 @@ now array is without 3
 The BIGGEST benefit of NPM would be that it's much easier to share projects with other developers, there is no neeed to download script tags - In order for the developer to download all the packages or dependencies that the project requires, Node modules will never be put into the github repo because all is needed is the package.json file. EVEN if we deleted the node modules, - as long as the we did npm install, it would all come back.
 
 There is another type of Dependency called "Dev dependency": It's packages that are only needed for development and testing, it will never be shipped to a website where people will see it. It's taken out automatically.
+
+npm install [package-name] –save-dev
+npm install --save-dev nodemon
 
 Go to package.json:
 in git: 
@@ -2116,11 +2120,173 @@ module.exports = {
     largeNumber: largeNumber
 };
 
+<<<<<<< Updated upstream
 THIS: 
 export const largeNumber = 356;
+=======
+-----------------------------
+instead of: SERVER.JS (Node folder)
+
+import express, { urlencoded, json } from 'express';
+const app = express();
+
+app.use(express.static(__dirname + '/public'))
+app.listen(3000)
+
+YOU need to do do this: In order to retrieve the files from the public folder (html, css, js (needs to  have the script src in index.html))
+
+import express, { urlencoded, json } from 'express';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(
+    import.meta.url);
+const __dirname = dirname(__filename)
+
+const app = express();
+app.use(express.static(__dirname + '/public'))
+
+app.listen(3000)
+--------------------------------
+
+node file system module
+const fs = require('fs')  - stands for file system
+
+// Imported the fs module that comes with node. FS module has a method readFile('', (err, data)) - 1st param is the file path that we want to read. It's going to read the file, if there is an error, spit the error out. If not, data will be spit out. we can run file in node by doing node script.js. toString is needed to not spit out the buffer. It uses UTF8 which is standard with html5. Way to have any chars represented by a number.
+-----------------------------------
+/* fs.readFileSync() -This one is run first
+    readFile is an Async file - it says that it's going to read the file, and when im done, keep going on with  the rest of the lines(past the function). this is going to let you know after reading everything to give you an err or data
+
+    readFileSync  is a sychronous file which emans it's going to read the hello file, wait until it's done and then assign it to const name and then keep going.
+    
+    This script reads the file, but continues reading, when it gets to the readFileSync, it'll output that before BECAUSE it's not done reading everything. once it's read everything it'll then put out itself. Asynchrousnous is selfless whereas Syncchronous is Selfish.
+
+    if we continue to do read filesync,  what happens is you're going to pause the execution of the file. It will read hello.txt and wait until it's been read before continuing.
+
+
+    const fs = require('fs')
+
+fs.readFile('./hello.txt', (err, data) => {
+    if (err) {
+        console.log("Errorrrrr");
+    } else {
+        console.log('async', data.toString());
+    }
+})
+const file = fs.readFileSync('./hello.txt');
+console.log("sync", file.toString());
 
 
 
+    TLDR: readFile is better than readFileSync()
+-------------------
+    main fs uses:
+
+    const fs = require('fs')
+
+fs.readFile('./hello.txt', (err, data) => {
+    if (err) {
+        console.log("Errorrrrr");
+    } else {
+        console.log('async', data.toString());
+    }
+})
+
+
+const file = fs.readFileSync('./hello.txt');
+console.log("sync", file.toString());
+>>>>>>> Stashed changes
+
+fs.appendFile('./hello.txt', ' This is an added appended add-in', err => {
+    if (err) {
+        console.log(err)
+    }
+})
+
+Write
+
+fs.writeFile("bye.txt", "I'm sorry yo see you go", err => {
+    if (err) {
+        console.log(err)
+    }
+})
+
+//  DELETE
+
+fs.unlink('./bye.txt', err => {
+    if (err) {
+        console.log(err)
+    }
+    console.log("inceptions")
+})
+
+
+
+/*
+If  appendFile didn't exist, it would create the file for us. 'fileName', 'What uyou want to add', 'err' => {if(err) {cdo this}}
+------------------------------------------
+SANTA'S HELPER
+finding words inside a file:
+
+// Going down: reduce
+// Splits it so each character is an individual string.
+//  currentValue is 0 cause Santa is on ground floor
+// += shorthand for  accum plus 1
+
+
+function question1() {
+    fs.readFile('./brack.txt', (err, data) => {
+        const directions = data.toString();
+        const directionsArray = directions.split('');
+        const answer = directionsArray.reduce((acc, currentValue) => {
+            if (currentValue === '(') {
+                return acc += 1
+            } else if (currentValue === ')') {
+                return acc -= 1
+            }
+        }, 0)
+        console.log("Floor:", answer);
+    })
+}
+question1();
+
+
+// .some() will look through the array, if finds something tha matches, it will stop looping.
+//return accumulator < 0; will end the function when acc is smaller tan 0
+
+function question2() {
+    fs.readFile("./brack.txt", (err, data) => {
+        const directions = data.toString();
+        let accumulator = 0;
+        let counter = 0;
+        const directionsArray = directions.split('');
+        const answer = directionsArray.some((currentItem) => {
+            if (currentItem === '(') {
+                accumulator += 1
+            } else if (currentItem === ')') {
+                accumulator -= 1
+            }
+            counter++
+            return accumulator < 0;
+        })
+        console.log("Basement entered at:", counter);
+    })
+}
+
+question2();
+
+----------------------------------------
+
+ERRORS:
+TypeError: Assignment to constant variable - see if changing to let will work.
+
+
+
+
+*/
+
+
+<<<<<<< Updated upstream
 
 but you need to specify if you're going to do it the other wat around -
 to do that you can rename files to .mjs
@@ -2440,3 +2606,7 @@ I have nothing to be afraid of because you're not leaving, or going anywhere.
 // cd Documents/GitHub/face-recognition-ai/face-recognition-ai
 
 */
+=======
+*
+/
+>>>>>>> Stashed changes
