@@ -2286,70 +2286,81 @@ TypeError: Assignment to constant variable - see if changing to let will work.
 */
 
 
-<<<<<<< Updated upstream
+<<
+<< << < Updated upstream
 
-but you need to specify if you're going to do it the other wat around -
-to do that you can rename files to .mjs
+but you need to specify
+if you 're going to do it the other wat around -
+to do that you can rename files to.mjs
 OR
-You can have .js files and use npm init for the package.json and add  "type": "module",
-to it
+You can have.js files and use npm init
+for the package.json and add "type": "module",
+    to it
 
 
-**3** types of Modules for node:
+    **
+    3 ** types of Modules
+for node:
 
-1. The ones you create yourself, it has module exports and you give the path to the 
-. Script2 with require and export.
+    1. The ones you create yourself, it has module exports and you give the path to the
+    .Script2 with require and
+export.
 
-2. built-in modules (preinstalled with node) i.e
+2. built - in modules(preinstalled with node) i.e
 import c from 'fs';
 console.log(c);
-This will give you a list of predefined functions available to use for example - 
-having a text file and read through the file and extract the amount of times it said the
-word "hello". (readFile or  readFileSync)
+This will give you a list of predefined functions available to use
+for example -
+    having a text file and read through the file and extract the amount of times it said the
+word "hello".(readFile or readFileSync)
 OR the http module: (servers)
 
-3. NPM/ package - use nodemon it can be used cause it's in the node_modules.bin. - it updates as you're typing instead of saying
+3. NPM / package - use nodemon it can be used cause it 's in the node_modules.bin. - it updates as you'
+re typing instead of saying
 node script.js everytime.
-    make a script that says "start": "nodemon fileName" filename i.e server.js
-npm install nodemon --save-dev
-dev dependencies are only used when developping. when realeased, it won't 
+make a script that says "start": "nodemon fileName"
+filename i.e server.js
+npm install nodemon--save - dev
+dev dependencies are only used when developping.when realeased, it won 't 
 
-server.listen(3000) Listens for the port number (any number )
+server.listen(3000) Listens
+for the port number(any number)
 
 
 CREATING A SERVER:
 
-In order to pass a const through response.end you need to JSON.stringify(user)
+    In order to pass a
+const through response.end you need to JSON.stringify(user)
 
 import { createServer } from "http";
-THIS -------------------------
+THIS-- -- -- -- -- -- -- -- -- -- -- -- -
 const server = createServer((request, response) => {
-    // console.log('header', request.headers);
-    console.log('method', request.method);
-    console.log('url', request.url);
-    const user = {
-        name: "John",
-        hobby: "Art"
-    }
+        // console.log('header', request.headers);
+        console.log('method', request.method);
+        console.log('url', request.url);
+        const user = {
+            name: "John",
+            hobby: "Art"
+        }
 
 
-    response.setHeader('Content-Type', 'application/json');
-    response.end(JSON.stringify(user));
+        response.setHeader('Content-Type', 'application/json');
+        response.end(JSON.stringify(user));
 
-})
------------------------------
-server.listen(3000);
+    })
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -
+    server.listen(3000);
 
-BUT. The best one to use would be Express:
+BUT.The best one to use would be Express:
     npm install express:
-------
-import express from 'express';
+    -- -- --
+    import express from 'express';
 const app = express();
 app.listen(3000);
---------
+-- -- -- --
 npm start
-app.get('/', (req, res)) - 1st is the path and 
-2nd is the req and res.
+app.get('/', (req, res)) - 1 st is the path and
+2 nd is the req and res.
 
 
 
@@ -2357,8 +2368,8 @@ import express from 'express';
 const app = express();
 
 // Get, post, put, use delete - if you go to that place, do this.
-it uses GET to receive a resource, PUT to change the state/update resourse, 
-POST to creare a resource and DELETE to removoe it
+it uses GET to receive a resource, PUT to change the state / update resourse,
+    POST to creare a resource and DELETE to removoe it
 
 
 app.get('/', (req, res) => {
@@ -2378,166 +2389,174 @@ app.post('/profile', (req, res) => {
 })
 app.listen(3000)
 
-Middleware: recieves something ahead of time before it gets to the routes, the request and 
-modifies it and passes the next function to keep it going.
+Middleware: recieves something ahead of time before it gets to the routes, the request and
+modifies it and passes the next
+function to keep it going.
 app.use((req, res, next) => {
     console.log("<h1>Helloooo</h1>")
     next()
 })
 
-next() is moving onto the next function. - it gets the req 
-of the website- this is useful because
+next() is moving onto the next
+function. - it gets the req
+of the website - this is useful because
 
-https://www.postman.com = BEST api for working with servers.
-POSTMAN: A good way to test our your server before you connect it your front-end.
-x-www-form-urlencoded (in the body, is for forms)
+https: //www.postman.com = BEST api for working with servers.
+    POSTMAN: A good way to test our your server before you connect it your front - end.
+x - www - form - urlencoded( in the body, is
+    for forms)
 
 
 app.post('/profile', (req, res) => {
-    console.log(req.body)
-    const user = {
-        name: 'Tasha',
-        hobby: 'Programming'
-    }
-    res.send(user);
-}) ----> To access  user console.log(req.body) --> 
+        console.log(req.body)
+        const user = {
+            name: 'Tasha',
+            hobby: 'Programming'
+        }
+        res.send(user);
+    }) -- -- > To access user console.log(req.body) -- >
 
-app.use(urlencoded({ extended: false }));
-app.use(json()); - this will make it so you can type raw (JSON) and it will pass a user say in the node server
+    app.use(urlencoded({ extended: false }));
+app.use(json()); - this will make it so you can type raw(JSON) and it will pass a user say in the node server
 
 
 RESTful API
-This defines a set of cuntions which developers can perform 
-requests and receive responses via http protocol (get, post put, delete)
+This defines a set of cuntions which developers can perform
+requests and receive responses via http protocol(get, post put, delete)
 A restful API will follow the tules that everyone can agree on so that we have
 compatibility between systems.
-it uses GET to receive a resource, PUT to change the state/update resourse, 
-POST to creare a resource and DELETE to removoe it.
+it uses GET to receive a resource, PUT to change the state / update resourse,
+    POST to creare a resource and DELETE to removoe it.
 
-MOST USED REQ (REQUESTS)    
-    req.query - Get query, console.log(req.query) -- localhost:300/?name=tasha&age=32
+MOST USED REQ(REQUESTS)
+req.query - Get query, console.log(req.query) --localhost: 300 / ? name = tasha & age = 32
 
-    req.body  - using stuff like urlencoded (postman) or JSON body-parsers, add middleware to recieve 
-    whatever the request sends to the body. 
+req.body - using stuff like urlencoded(postman) or JSON body - parsers, add middleware to recieve
+whatever the request sends to the body.
 
-    req.headers - use postman BUT make sure ur code says console.log(req.headers)
-    go to headers tab (GET) and create key + value
+req.headers - use postman BUT make sure ur code says console.log(req.headers)
+go to headers tab(GET) and create key + value
 
-    req.params - console.log(req.params) below:
+req.params - console.log(req.params) below:
 
     app.get('/:id', (req, res) => {
-    console.log(req.params)
-    res.send("Getting root.");
-}); 
-localhost:3000/1234 -GET  then send --> this will  send "id: 1234 " to the server.
+        console.log(req.params)
+        res.send("Getting root.");
+    });
+localhost: 3000 / 1234 - GET then send-- > this will send "id: 1234 "
+to the server.
 
 To get the server to read public files like index.html:
 
 
 
-/ --> res = this is working
-/signin --> POST = success/fail
-/register --> POST = user
-/profile/:userId --> GET = user
-/image --> PUT = user
+    / --> res = this is working /
+    signin-- > POST = success / fail /
+    register-- > POST = user /
+    profile /: userId-- > GET = user /
+    image-- > PUT = user
 
-When sending data to the front-end using JSON, we need to remember to 
-parse it cause express doesn't kmow what we sent over
+When sending data to the front - end using JSON, we need to remember to
+parse it cause express doesn 't kmow what we sent over
 
 npm install bcryptjs - Password storing hashing
 
 Hashing:
-in register:
- bcrypt.hash(password, 8, function(err, hash) {
-            console.log(hash)
-        });
+    in register:
+    bcrypt.hash(password, 8, function(err, hash) {
+        console.log(hash)
+    });
 
 in signin:
- bcrypt.compare("apples", "HashNum ", function(err, res) {
-            console.log("First guess", res)
-        });
-        bcrypt.compare("wrongOne", "hash num", function(err, res) {
-            console.log("2nd guess", res)
-                // res === false
-        });
+    bcrypt.compare("apples", "HashNum ", function(err, res) {
+        console.log("First guess", res)
+    });
+bcrypt.compare("wrongOne", "hash num", function(err, res) {
+    console.log("2nd guess", res)
+        // res === false
+});
 
-        // As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
-        bcrypt.compare("B4c0/\/", "hash num").then((res) => {
-            // res === true
-        });
+// As of bcryptjs 2.4.0, compare returns a promise if callback is omitted:
+bcrypt.compare("B4c0/\/", "hash num").then((res) => {
+    // res === true
+});
 
 DBMS = Databasa management systms
 
-PostgreSQL 
-= Relational DB---> SQL --> 2  or more tables with columns and rows.
+PostgreSQL
+    = Relational DB-- - > SQL-- > 2 or more tables with columns and rows.
 each row represents an entry.
 column stores important info = name, addresses etc
-Full name / ID etc that identifies each row in  a table is called a primary key
-Pre defined users (all users) with tweets etc.
+Full name / ID etc that identifies each row in a table is called a primary key
+Pre defined users(all users) with tweets etc.
 Command prompt:
 
-psql -U postgres 
+    psql - U postgres
 
-createdb -U postgres nameOfDatabase
-psql -U postgres nameoFDatabase - enter DB (DO THIS to go straight to a DB)
+createdb - U postgres nameOfDatabase
+psql - U postgres nameoFDatabase - enter DB(DO THIS to go straight to a DB)
 
 
-TABLES"
-CREATE TABLE table_name (column_1 datatype, column_2 datatype, column_3 datatype)
+TABLES "
+CREATE TABLE table_name(column_1 datatype, column_2 datatype, column_3 datatype)
 
 i.e
-CREATE TABLE table_name (name text, age smallint, birthday date)
+CREATE TABLE table_name(name text, age smallint, birthday date)
 or
- CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255));
-\dt - will display tables
+CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(255), email VARCHAR(255));\
+dt - will display tables
 
-pgadmin 4 Db name, schemas, tables, tablename, columns, right clck on DB name (users)(view all rows)
+pgadmin 4 Db name, schemas, tables, tablename, columns, right clck on DB name(users)(view all rows)
 
 list of Schema = \d
 
-COMMANDS for databases:
-psql -U postgres 
-psql -U postgres nameoFDatabase - enter DB (DO THIS to go straight to a DB)
-\d --> schema
-\db --> list of Dbs
-\q - quit
-CREATE TABLE table_name (column_1 datatype, column_2 datatype, column_3 datatype); i.e CREATE TABLE table_name (name text, age smallint, birthday date);
-INSERT INTO table_name (column_1, column_2, column_3) VALUES (value_1, 'value_2', value_3 ); i.e test=# INSERT INTO users (name, age, birthday) VALUES ('Tasha', 18, '2003-10-14');
-SELECT val1, val2, val3 FROM  dbName - SELECT name, age, birthday FROM users; - will display the data I received.
-SELECT * - selects everything - SELECT * FROM dbName
-ALTER TABLE table_name ADD column datatype; -    ALTER TABLE users ADD score smallint;
-UPDATE table_name SET column_name = a_value WHERE column_name = a_value - UPDATE users SET score = 50 WHERE name='Tasha'; - upfates one user
-UPDATE users SET score = 50 WHERE name='Tasha' OR name='Cara'; - updates BOTH
-LIKE -SELECT * FROM dbName  WHERE column LIKE 'A%' =  SELECT * FROM users WHERE name LIKE 'C%' - Will  grab all users that start with C 
-                                                            SELECT * FROM dbName  WHERE column LIKE '%A' - all names ending in A
-ORDER BY - SELECT * FROM dbname ORDER BY column DESC/ASC;- order a column by asc/desc  - SELECT * FROM users ORDER BY score DESC; 
+COMMANDS
+for databases:
+    psql - U postgres
+psql - U postgres nameoFDatabase - enter DB(DO THIS to go straight to a DB)\ d-- > schema\ db-- > list of Dbs\ q - quit
+CREATE TABLE table_name(column_1 datatype, column_2 datatype, column_3 datatype);
+i.e CREATE TABLE table_name(name text, age smallint, birthday date);
+INSERT INTO table_name(column_1, column_2, column_3) VALUES(value_1, 'value_2', value_3);
+i.e test = #INSERT INTO users(name, age, birthday) VALUES('Tasha', 18, '2003-10-14');
+SELECT val1, val2, val3 FROM dbName - SELECT name, age, birthday FROM users; - will display the data I received.
+SELECT * -selects everything - SELECT * FROM dbName
+ALTER TABLE table_name ADD column datatype; - ALTER TABLE users ADD score smallint;
+UPDATE table_name SET column_name = a_value WHERE column_name = a_value - UPDATE users SET score = 50 WHERE name = 'Tasha'; - upfates one user
+UPDATE users SET score = 50 WHERE name = 'Tasha'
+OR name = 'Cara'; - updates BOTH
+LIKE - SELECT * FROM dbName WHERE column LIKE 'A%' = SELECT * FROM users WHERE name LIKE 'C%' - Will grab all users that start with C
+SELECT * FROM dbName WHERE column LIKE '%A' - all names ending in A
+ORDER BY - SELECT * FROM dbname ORDER BY column DESC / ASC; - order a column by asc / desc - SELECT * FROM users ORDER BY score DESC;
 AVG() - SELECT AVG(column name) FROM dbname; - SELECT AVG(score) FROM users;
-SUM() - SELECT SUM(colname) FROM dbname; -  SELECT SUM(age) FROM users;
-COUNT()  - counts how mant rows are there--> SELECT COUNT(colname) FROM dbname; - SELECT COUNT(name) FROM users -- 
-DELETE FROM dbName WHERE colname='coldata' - DELETE FROM users WHERE name='Sally';
-DROP TABLE tablename; - deletes whole table --> DROP TABLE users;
+SUM() - SELECT SUM(colname) FROM dbname; - SELECT SUM(age) FROM users;
+COUNT() - counts how mant rows are there-- > SELECT COUNT(colname) FROM dbname; - SELECT COUNT(name) FROM users--
+    DELETE FROM dbName WHERE colname = 'coldata' - DELETE FROM users WHERE name = 'Sally';
+DROP TABLE tablename; - deletes whole table-- > DROP TABLE users;
 
-CREATE TABLE login (
+CREATE TABLE login(
     ID serial NOT NULL PRIMARY KEY,
-    secret VARCHAR  (100) NOT NULL,
+    secret VARCHAR(100) NOT NULL,
     name text UNIQUE NOT NULL
 );
-ID   --> data type of serial which autoincrementing four-byte integer ()
-NOT NULL --> it has to be a filled in property  // Required.
-PRIMARY KEY --> ID is the primary key, it's what you want to access when looking for things. Primary key is unique to each row. (one per table) I.e ID or email. Fast way of grabbing / selecting info
-secret VARCHAR -->  secret value (hash) won't be greater than VARCHAR (100)
-name text UNIQUE --> unique means that if "name" already exists we can't insertt into it.
-SELECT * FROM db1 JOIN db2 ON db1.colname = db2.sameColName; -->  SELECT * FROM users JOIN login ON users.name = login.name;
+ID-- > data type of serial which autoincrementing four - byte integer()
+NOT NULL-- > it has to be a filled in property // Required.
+PRIMARY KEY-- > ID is the primary key, it 's what you want to access when looking for things. Primary key is unique to each row. (one per table) I.e ID or email. Fast way of grabbing / selecting info
+secret VARCHAR-- > secret value(hash) won 't be greater than VARCHAR (100)
+name text UNIQUE-- > unique means that
+if "name"
+already exists we can 't insertt into it.
+SELECT * FROM db1 JOIN db2 ON db1.colname = db2.sameColName;
+-- > SELECT * FROM users JOIN login ON users.name = login.name;
 
- 
 
 
-CREATE TABLE users (
-	id serial PRIMARY KEY,
-	name VARCHAR(100),
-	email text UNIQUE NOT NULL,
-	entries BIGINT DEFAULT 0,
-	joined TIMESTAMP NOT NULL
+
+CREATE TABLE users(
+    id serial PRIMARY KEY,
+    name VARCHAR(100),
+    email text UNIQUE NOT NULL,
+    entries BIGINT DEFAULT 0,
+    joined TIMESTAMP NOT NULL
 );
 
 
@@ -2553,8 +2572,8 @@ CREATE TABLE users (
 
 
 
-NoSQL --> mongoDB --> don't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
-not predefined. Has each user as a seperate document.  but user_1  has EVERYTHUING. The tweets, follows etc
+NoSQL-- > mongoDB-- > don 't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
+not predefined.Has each user as a seperate document.but user_1 has EVERYTHUING.The tweets, follows etc
 
 
 
@@ -2573,15 +2592,26 @@ not predefined. Has each user as a seperate document.  but user_1  has EVERYTHUI
 
 
 
-I think the reason to why I seemed so disturbed was not me being disturbed, was me being afraid. 
-I'm so afraid of losing you, of you leaving, of us not talking anymore, but I've really been thinking about it, taking the time to just sit here and think and I've come to the
-decision that you're right. We're still going to be doing everything together that we usually do, just like normal.  I suppose i was just scared that nothing was going to be 
-the same, which is untrue. You're going to be busy streaming, but that doesn't mean I can't still message you and interract with you
-whether it's on your twitch chat or in your dms. You're also gonna be having days off and breaks, so it's not like you're leaving at all.
-I will 100% support you on whatever you're doing. It's almost exciting, even though it's not some trivial teenager streamer's dream -
-it's something that you're going to succeed in and I get to be a part of the whole experience of you starting out, to you gettting a following and everything, I'm excited that I get to be even more apart of your life than I am now. 
-It really is thoughtful that you're still putting time aside from me, even though I know how busy you'll be. I also know that you're still going to be there if I need you, and I'm able to still message with you in your twitch chat aswell as our DMs. 
-I have nothing to be afraid of because you're not leaving, or going anywhere.
+I think the reason to why I seemed so disturbed was not me being disturbed, was me being afraid.
+I 'm so afraid of losing you, of you leaving, of us not talking anymore, but I'
+ve really been thinking about it, taking the time to just sit here and think and I 've come to the
+decision that you 're right. We'
+re still going to be doing everything together that we usually do,
+just like normal.I suppose i was just scared that nothing was going to be
+the same, which is untrue.You 're going to be busy streaming, but that doesn'
+t mean I can 't still message you and interract with you
+whether it 's on your twitch chat or in your dms. You'
+re also gonna be having days off and breaks, so it 's not like you'
+re leaving at all.
+I will 100 % support you on whatever you 're doing. It'
+s almost exciting, even though it 's not some trivial teenager streamer'
+s dream -
+    it 's something that you'
+re going to succeed in and I get to be a part of the whole experience of you starting out, to you gettting a following and everything, I 'm excited that I get to be even more apart of your life than I am now. 
+It really is thoughtful that you 're still putting time aside from me, even though I know how busy you'
+ll be.I also know that you 're still going to be there if I need you, and I'
+m able to still message with you in your twitch chat aswell as our DMs.
+I have nothing to be afraid of because you 're not leaving, or going anywhere.
 
 
 
@@ -2605,8 +2635,8 @@ I have nothing to be afraid of because you're not leaving, or going anywhere.
 
 // cd Documents/GitHub/face-recognition-ai/face-recognition-ai
 
-*/
-=======
 *
-/
->>>>>>> Stashed changes
+/ ===
+=== = *
+/ >>>
+>>> > Stashed changes
