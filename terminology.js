@@ -2349,17 +2349,67 @@ AVG() - SELECT AVG(column name) FROM dbname; - SELECT AVG(score) FROM users;
 SUM() - SELECT SUM(colname) FROM dbname; -  SELECT SUM(age) FROM users;
 COUNT()  - counts how mant rows are there--> SELECT COUNT(colname) FROM dbname; - SELECT COUNT(name) FROM users -- 
 
-2:40 HEADQUARTERS - eyes.
+CREATE TABLE login (
+    ID serial NOT NULL PRIMARY KEY,
+    secret VARCHAR  (100) NOT NULL,
+    name text UNIQUE NOT NULL
+);
+ID   --> data type of serial which autoincrementing four-byte integer ()
+NOT NULL --> it has to be a filled in property  // Required.
+PRIMARY KEY --> ID is the primary key, it's what you want to access when looking for things. Primary key is unique to each row. (one per table) I.e ID or email. Fast way of grabbing / selecting info
+secret VARCHAR -->  secret value (hash) won't be greater than VARCHAR (100)
+name text UNIQUE --> unique means that if "name" already exists we can't insertt into it.
 
-10:30 for hair thurs
 
-1p for makeup thurd
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 NoSQL --> mongoDB --> don't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
 not predefined. Has each user as a seperate document.  but user_1  has EVERYTHUING. The tweets, follows etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+I think the reason to why I seemed so disturbed was not me being disturbed, was me being afraid. 
+I'm so afraid of losing you, of you leaving, of us not talking anymore, but I've really been thinking about it, taking the time to just sit here and think and I've come to the
+decision that you're right. We're still going to be doing everything together that we usually do, just like normal.  I suppose i was just scared that nothing was going to be 
+the same, which is untrue. You're going to be busy streaming, but that doesn't mean I can't still message you and interract with you
+whether it's on your twitch chat or in your dms. You're also gonna be having days off and breaks, so it's not like you're leaving at all.
+I will 100% support you on whatever you're doing. It's almost exciting, even though it's not some trivial teenager streamer's dream -
+it's something that you're going to succeed in and I get to be a part of the whole experience of you starting out, to you gettting a following and everything, I'm excited that I get to be even more apart of your life than I am now. 
+It really is thoughtful that you're still putting time aside from me, even though I know how busy you'll be. I also know that you're still going to be there if I need you, and I'm able to still message with you in your twitch chat aswell as our DMs. 
+I have nothing to be afraid of because you're not leaving, or going anywhere.
+
+
+
+
+
 
 
 
