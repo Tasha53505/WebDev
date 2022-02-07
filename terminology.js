@@ -2589,7 +2589,28 @@ anyName.select('colname1', 'colname1', 'colname1',).from('dbname') -- knex.selec
 TEST THIS: console.log(anyName.select('*').from('users'));
 
 
+app.post('/register', (req, res) => {
+        const { name, email } = req.body
+        db('users')
+            .returning('*')
+            .insert({
+                email: email,
+                name: name,
+                joined: new Date(),
+            })
+            // This grabs the last user.
+            .then(user => {
+                res.json(user[0])
 
+            })
+            // Adds a catch and error block
+            .catch(err => res.status(400).json(err))
+            // database.users[database.users.length - 1
+    })
+
+    -- you would change to it "text" BECAUSE We don't want the user to know anything about our database.
+    --KNEX Update, increment + transaction documentation
+    .json("Unable to join"))
 
 
 
