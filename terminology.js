@@ -2552,8 +2552,6 @@ SELECT * FROM db1 JOIN db2 ON db1.colname = db2.sameColName;
 -- > SELECT * FROM users JOIN login ON users.name = login.name;
 
 
-
-
 CREATE TABLE users(
     id serial PRIMARY KEY,
     name VARCHAR(100),
@@ -2563,7 +2561,32 @@ CREATE TABLE users(
 );
 
 
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	hash varchar(100) NOT NULL,
+	email text UNIQUE NOT NULL
+);
 
+CONNECTING DATABASES. KNEX
+install pg aswell as knex.
+
+const knex = require('knex')
+
+const anyName = knex({
+    client: 'pg',
+    connection: {
+        host: '127.0.0.1',
+        port: 3000,
+        user: 'postgres',
+        password: 'Crumpet63',
+        database: 'face-recognition-ai'
+    }
+});
+
+
+anyName.select('colname1', 'colname1', 'colname1',).from('dbname') -- knex.select('title', 'author', 'year').from('books')
+
+TEST THIS: console.log(anyName.select('*').from('users'));
 
 
 
