@@ -2565,7 +2565,7 @@ CREATE TABLE login (
 	id serial PRIMARY KEY,
 	hash varchar(100) NOT NULL,
 	email text UNIQUE NOT NULL
-);
+);  
 
 CONNECTING DATABASES. KNEX
 install pg aswell as knex.
@@ -2648,10 +2648,66 @@ app.listen(PORT () => {
 in bash go: PORT=sumNumber node server.js
 
 
+
+
+
+
+
+
+
+
+
+
 HEROKU
 Download heroku 
 in ur api
 $ heroku create
+login
+given url - heroku open
+git push heroku main
+heroku logs --tail
+in SERVER.JS:
+app.listen(process.env.PORT || 8000, () => {
+        console.log(`App is running on port ${process.env.PORT}`)
+    })
+and then
+git push heroku main
+
+every change
+git add .
+git commit -m""
+git push heroku main
+
+if nodemon is not found in logs --tail
+go to package.json and do this:
+
+    "start": "node server.js",
+        "start:dev": "nodemon server.js"
+
+https://sheltered-river-39504.herokuapp.com
+
+HEROKU TO POSTGRES
+click the 9 dotted square and clcik database - postgres
+
+
+connect it all - server.js at knex  and change host to
+heroku pg:info
+then
+heroku addons
+see if its the same then add it
+
+DATABASE URL : 
+heroku config
+
+
+FRONT-END
+npm install serve --s
+
+
+
+
+
+
 
 
 
