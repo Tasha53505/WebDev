@@ -2614,8 +2614,38 @@ app.post('/register', (req, res) => {
 
 
 
+CLEANING UP CODE WITH CONTROLLERS:
+Create folder called controllers
+add i.e profile.js
+add everything with and after (req, res) to profile.js
+app.get('/profile/:id', (req, res) => {
+        const { id } = req.params;
+        db.select('*').from('users'
+change the server.js  to (req, res) => { register.handleRegister(req, res, db, bcrypt) })
+
+add a const profile = require('./controllers/name)
+on profile.js:
+module.exports = {
+    handleProfile: handleProfile
+}
+add the const profile =  --> profile.js
 
 
+
+  if (!email || !name || !password) {
+       return res.status(400).json('Incorrect form submission')
+    }
+    REMEMber to stop running the code, you need to return it
+
+
+    ENVIROMENTAL VARIABLES --> secrets like api 
+    console.log(process.env) --> enviromental variable. will show where home is
+or
+const PORT = process.env.PORT
+app.listen(PORT () => {
+    console.log(`serbver is listening on port ${PORT}`);
+})
+in bash go: PORT=sumNumber node server.js
 
 
 
@@ -2681,6 +2711,7 @@ JAVA <3
 
 
 // cd Documents/GitHub/face-recognition-ai/face-recognition-ai
+https://content.latest-hairstyles.com/wp-content/uploads/hairstyles-for-oval-faces.jpg
 
 *
 / === ===
