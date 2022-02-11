@@ -2648,6 +2648,12 @@ app.listen(PORT () => {
 in bash go: PORT=sumNumber node server.js
 
 
+HEROKU
+Download heroku 
+in ur api
+$ heroku create
+
+
 
 NoSQL-- > mongoDB-- > don 't need to define the schema. MongoDB is document orientated meaning that it stores information as documents.
 not predefined.Has each user as a seperate document.but user_1 has EVERYTHUING.The tweets, follows etc
