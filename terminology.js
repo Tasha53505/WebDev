@@ -2700,6 +2700,11 @@ DATABASE URL :
 heroku config
 
 
+reveal configs in settings of heroku server - add keys oif u want like the api key for clarafai
+INSTEAD of the apiKey: "9bdkmething" -->
+    apiKey: process.env.API_CLARIFAI
+
+
 FRONT-END
 npm install serve --s
 
